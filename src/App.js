@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
 
 function App() {
+  const [imageUrl, setImageUrl] = useState('');
+
+  useEffect(() => {
+    // This is a mock endpoint that returns a new image URL every 5 seconds
+    const endpoint = 'https://dream-machine-helper.azurewebsites.net/api/getImgURL';
+    const intervalId = setInterval(() => {
+      fetch(endpoint, {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "DELETE, POST, GET, OPTIONS",
+          "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With",
+          'Content-Type': 'application/json',
+      }
+      })
+        .then((response) => response.json())
+        .then((data) => setImageUrl(data.url))
+        .catch((error) => console.log(error));
+    }, 5000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {imageUrl ? <img src={imageUrl} alt="random image" /> : <p>Loading image...</p>}
     </div>
   );
 }
