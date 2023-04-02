@@ -17,6 +17,7 @@ function App() {
       })
         .then((response) => response.json())
         .then((data) => setImageUrl(data.url))
+        .then((data) => console.log(data))
         .catch((error) => console.log(error));
     }, 5000);
 
