@@ -25,7 +25,7 @@ function App() {
 
   return (
     <div>
-      {imageUrl ? <img src={imageUrl} alt="random image" /> : <p>Loading image...</p>}
+      {imageUrl ? <img src={imageUrl} alt="dream" /> : <p>Loading image...</p>}
     </div>
   );
 }
