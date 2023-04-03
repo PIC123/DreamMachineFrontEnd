@@ -24,9 +24,24 @@ function App() {
     return () => clearInterval(intervalId);
   }, []);
 
+  const style = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100vh'
+  };
+
   return (
-    <div>
-      {imageUrl ? <img src={imageUrl} alt="dream" /> : <p>Loading image...</p>}
+    <div style={style}>
+      {imageUrl ? (
+        <img
+          src={imageUrl}
+          alt="latest dream"
+          style={{ maxWidth: '100%', maxHeight: '100%' }}
+        />
+      ) : (
+        <p>Loading image...</p>
+      )}
     </div>
   );
 }
