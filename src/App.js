@@ -28,7 +28,8 @@ function App() {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '100vh'
+    height: '100vh',
+    background: 'repeating-radial-gradient(#59d3e0, transparent 100px)',
   };
 
   return (
