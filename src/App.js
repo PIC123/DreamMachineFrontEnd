@@ -34,15 +34,19 @@ function App() {
 
   return (
     <div style={style}>
-      {imageUrl ? (
-        <img
-          src={imageUrl}
-          alt="latest dream"
-          style={{ maxWidth: '100%', maxHeight: '100%' }}
-        />
-      ) : (
-        <p>Loading image...</p>
-      )}
+      <body>
+        <h1>Welcome to Dream Machine</h1>
+          {imageUrl ? (
+            <img
+              src={imageUrl}
+              alt="latest dream"
+              className="dream-image"
+            />
+          ) : (
+            <p>Loading image...</p>
+          )}
+        <p className="image-label">Latest Dream</p>
+      </body>
     </div>
   );
 }
