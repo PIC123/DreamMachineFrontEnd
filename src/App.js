@@ -40,12 +40,14 @@ function App() {
             <img
               src={imageUrl}
               alt="latest dream"
+              style={{ maxWidth: '100%', maxHeight: '100%' }}
               className="dream-image"
             />
           ) : (
             <p>Loading image...</p>
           )}
         <p className="image-label">Latest Dream</p>
+        <h2>Call +1(479)-348-1521 to submit your dream</h2>
       </body>
     </div>
   );
